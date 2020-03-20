@@ -12,5 +12,8 @@
   },
   "engines": {
     "node": "10.17.0"
+  },
+  "dependencies": {
+    "google-spreadsheet": "^3.0.10"
   }
 }
