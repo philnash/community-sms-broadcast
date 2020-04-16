@@ -1,27 +1,28 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
+const fs = require("fs");
+const credentials = JSON.parse(
+  fs.readFileSync(Runtime.getAssets()["/credentials.json"].path, "utf8")
+);
 
 const notOnTheListMessage =
   "You're not currently on this community list. Please contact the community organiser to be added.";
 
-exports.handler = async function(context, event, callback) {
+exports.handler = async function (context, event, callback) {
+  const twiml = new Twilio.twiml.MessagingResponse();
   const doc = new GoogleSpreadsheet(context.GOOGLE_SPREADSHEET_KEY);
-  await doc.useServiceAccountAuth({
-    client_email: context.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    private_key: context.GOOGLE_PRIVATE_KEY
-  });
+  await doc.useServiceAccountAuth(credentials);
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[0];
   const rows = await sheet.getRows();
-  const twiml = new Twilio.twiml.MessagingResponse();
-  const from = rows.filter(row => row.Number === event.From)[0];
+  const from = rows.find((row) => row.Number === event.From);
   if (from) {
     rows
-      .filter(row => row.Number !== event.From)
-      .forEach(row => {
+      .filter((row) => row.Number !== event.From)
+      .forEach((row) => {
         twiml.message(
           `From: ${row.Name} (${row.House}).\nBody: ${event.Body}`,
           {
-            to: row.Number
+            to: row.Number,
           }
         );
       });

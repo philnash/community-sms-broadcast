@@ -113,3 +113,8 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+
+# private assets with credentials
+assets/credentials.private.json
+
+.twilio-functions
