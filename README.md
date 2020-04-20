@@ -4,6 +4,8 @@ This repo is an example application that you can use to broadcast SMS messages t
 
 The idea is that a community can put together a spreadsheet that includes names, numbers and other details (like house number) to differentiate themselves. Then community members can then send an SMS message to a Twilio number and have that message broadcast to the rest of the community.
 
+Want to see how to build this application? Check out the blog post [build a community SMS group chat with Twilio Functions and Google Sheets](https://www.twilio.com/blog/community-sms-group-chat-twilio-functions-google-sheets).
+
 * [What you need](#what-you-need)
 * [Setting up the app](#setting-up-the-app)
   * [Spreadsheet setup](#spreadsheet-setup)
