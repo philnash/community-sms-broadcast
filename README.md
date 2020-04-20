@@ -27,7 +27,7 @@ We need to do a few things to use this app, including preparing credentials to m
 - _Create Credentials_ for a _Web Server_ to access _Application Data_
 - Name the service account and grant it a _Project Role_ of _Editor_
 - Download the JSON file of credentials and open it up
-- Find the "client*email" key in the JSON file and get the email address. Back in your spreadsheet click the \_Share* button and paste the client_email into the share field to give that email address access to the spreadsheet. We'll need these credentials again, so keep them safe
+- Find the "client_email" key in the JSON file and get the email address. Back in your spreadsheet click the _Share_ button and paste the client_email into the share field to give that email address access to the spreadsheet. We'll need these credentials again, so keep them safe
 
 ### Twilio Setup
 
@@ -53,8 +53,8 @@ You will need [Node.js installed](https://nodejs.org/en/download/) to perform th
       cp .env.example .env
 
 - Fill in the `.env` file with your Twilio Account Sid and Auth Token (available in your [Twilio Console](https://www.twilio.com/console/))
-- From the Google credentials JSON file, find the client_email and private_key fields and add them as your `GOOGLE_SERVICE_ACCOUNT_EMAIL` and `GOOGLE_PRIVATE_KEY` in `.env`
 - Open your Google Spreadsheet and look at the URL bar, it should look like `https://docs.google.com/spreadsheets/d/{GOOGLE_SPREADSHEET_KEY}/edit#gid=0`. Take the string that represents your `GOOGLE_SPREADSHEET_KEY` and enter that into `.env`
+- Take the Google credentials JSON file you downloaded earlier and move it into the assets directory. Call it `assets/credentials.private.json`.
 - [optional] Open `functions/community-sms-broadcast.protected.js` and update the message assigned to `notOnTheListMessage` (this will be sent to anyone who sends a message to the number that is not on the spreadsheet)
 
 Now you should be ready to deploy.
@@ -79,6 +79,7 @@ Now you should be ready to deploy.
 - Open the [Twilio Functions Configuration console](https://www.twilio.com/console/functions/configure)
 - Check the box that says _Enable ACCOUNT_SID and AUTH_TOKEN_
 - From the Google credentials JSON file, find the client_email and private_key fields and add them as environment variables called `GOOGLE_SERVICE_ACCOUNT_EMAIL` and `GOOGLE_PRIVATE_KEY`
+- Take the Google credentials JSON file you downloaded earlier and upload it as a private asset called `credentials.json`.
 - Open your Google Spreadsheet and look at the URL bar, it should look like `https://docs.google.com/spreadsheets/d/{GOOGLE_SPREADSHEET_KEY}/edit#gid=0`. Take the string that represents your `GOOGLE_SPREADSHEET_KEY` and enter that as an environment variable called `GOOGLE_SPREADSHEET_KEY`
 - In dependencies, enter `google-spreadsheet` with the version `3.0.10`
 - Save the configuration
