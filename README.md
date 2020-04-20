@@ -4,6 +4,16 @@ This repo is an example application that you can use to broadcast SMS messages t
 
 The idea is that a community can put together a spreadsheet that includes names, numbers and other details (like house number) to differentiate themselves. Then community members can then send an SMS message to a Twilio number and have that message broadcast to the rest of the community.
 
+* [What you need](#what-you-need)
+* [Setting up the app](#setting-up-the-app)
+  * [Spreadsheet setup](#spreadsheet-setup)
+  * [Google credentials setup](#google-credentials-setup)
+  * [Twilio Setup](#twilio-setup)
+    * [Twilio Serverless Toolkit](#twilio-serverless-toolkit)
+    * [Twilio Functions UI](#twilio-functions-ui)
+  * [You're ready](#youre-ready)
+* [LICENSE](#license)
+
 ## What you need
 
 - [A Twilio Account](https://www.twilio.com/try-twilio)
@@ -33,7 +43,7 @@ We need to do a few things to use this app, including preparing credentials to m
 
 - In your Twilio console [buy a new phone number with SMS capabilities](https://www.twilio.com/console/phone-numbers/search)
 
-You can deploy the Twilio Function for this application two ways, using the Twilio Serverless toolkit or the Twilio Functions UI.
+You can deploy the Twilio Function for this application two ways, using the [Twilio Serverless Toolkit](#twilio-serverless-toolkit) or the [Twilio Functions UI](#twilio-functions-ui).
 
 #### Twilio Serverless Toolkit
 
