@@ -90,7 +90,6 @@ Now you should be ready to deploy.
 - Save the Function
 - Open the [Twilio Functions Configuration console](https://www.twilio.com/console/functions/configure)
 - Check the box that says _Enable ACCOUNT_SID and AUTH_TOKEN_
-- From the Google credentials JSON file, find the client_email and private_key fields and add them as environment variables called `GOOGLE_SERVICE_ACCOUNT_EMAIL` and `GOOGLE_PRIVATE_KEY`
 - Take the Google credentials JSON file you downloaded earlier and upload it as a private asset called `credentials.json`.
 - Open your Google Spreadsheet and look at the URL bar, it should look like `https://docs.google.com/spreadsheets/d/{GOOGLE_SPREADSHEET_KEY}/edit#gid=0`. Take the string that represents your `GOOGLE_SPREADSHEET_KEY` and enter that as an environment variable called `GOOGLE_SPREADSHEET_KEY`
 - In dependencies, enter `google-spreadsheet` with the version `3.0.10`
