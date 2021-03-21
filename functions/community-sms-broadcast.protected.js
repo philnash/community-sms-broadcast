@@ -20,7 +20,7 @@ exports.handler = async function (context, event, callback) {
       .filter((row) => row.Number !== event.From)
       .forEach((row) => {
         twiml.message(
-          `From: ${row.Name} (${row.House}).\nBody: ${event.Body}`,
+          `From: ${from.Name} (${from.House}).\nBody: ${event.Body}`,
           {
             to: row.Number,
           }
